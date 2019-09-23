@@ -1,0 +1,23 @@
+<apex:page sidebar="false" showHeader="false" controller="Invoice_Controller">
+    <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockButtons >
+               <apex:commandButton value="Next" action="{!redirect}"/>
+           </apex:pageBlockButtons>
+       <apex:pageBlockSection title="Invoice Details">       
+            <apex:pageBlockTable value="{!list1}" var="Invoice">
+              <apex:column value="{!Invoice.Name}" style="background-color: green;"/>
+                <apex:column value="{!Invoice.Amount__c}"/>  
+              </apex:pageBlockTable>
+              </apex:pageBlockSection>
+                 
+          <apex:pageBlockSection title="Line Item Details">
+            <apex:pageBlockTable value="{!list2}" var="Invoicelineitems">
+                <apex:column value="{!Invoicelineitems.Invoice__c}" style="background-color: green;"/>
+                <apex:column value="{!Invoicelineitems.Name}" />
+                <apex:column value="{!Invoicelineitems.Amount__c}"/>
+            </apex:pageBlockTable>
+        </apex:pageBlockSection>   
+    </apex:pageBlock>
+    </apex:form>
+</apex:page>
